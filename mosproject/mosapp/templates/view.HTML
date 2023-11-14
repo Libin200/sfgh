@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <title>it desk</title>
+ <style>
+   table,th,td{
+    border: 2px solid red;
+   }
+   body{
+    background-image: url("{%static 'img/a.jpg'%}");
+    background-repeat: no-repeat;
+    background-size: cover;
+   }
+ </style>
+  <script src="{%static 'js/a.js'%}"></script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Employee Id</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>email No</th>
+            <th>edit</th>
+        </tr>
+        {% for data in datas %}
+        <tr>
+            <td>{{data.employee_id}}</td>
+            <td>{{data.username}}</td>
+            <td>{{data.salary}}</td>
+            <td>{{data.email}}</td>
+            <td><a href="/edit/{{data.employee_id}}">edit</a></td>
+            <td><a href="/delete/{{data.employee_id}}">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
